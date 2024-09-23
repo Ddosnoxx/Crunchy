@@ -231,29 +231,28 @@ def error_handler(update: Update, context: CallbackContext):
 # Main function to run
 # Main function to run the bot
 def main():
-    application = ApplicationBuilder().token('7845868118:AAEXzBLBlJ7HvpACv_CLDI353LnfPtpGBqM').build()# Replace with your bot token
+    application = ApplicationBuilder().token('7845868118:AAEXzBLBlJ7HvpACv_CLDI353LnfPtpGBqM').build()
 
     # Command handlers
-    updater.dispatcher.add_handler(CommandHandler('start', start))
-    updater.dispatcher.add_handler(CommandHandler('load', load))
-    updater.dispatcher.add_handler(CommandHandler('mload', mload))
-    updater.dispatcher.add_handler(CommandHandler('acc', acc))
-    updater.dispatcher.add_handler(CommandHandler('invite', invite))
-    updater.dispatcher.add_handler(CommandHandler('daily_reward', daily_reward))
-    updater.dispatcher.add_handler(CommandHandler('history', history))
-    updater.dispatcher.add_handler(CommandHandler('shop', shop))
-    updater.dispatcher.add_handler(CommandHandler('admin_stats', admin_stats))
-    updater.dispatcher.add_handler(CommandHandler('support', support))
-    updater.dispatcher.add_handler(CommandHandler('feedback', feedback))
-    updater.dispatcher.add_handler(CommandHandler('seasonal_event', seasonal_event))
+    application.add_handler(CommandHandler('start', start))
+    application.add_handler(CommandHandler('load', load))
+    application.add_handler(CommandHandler('mload', mload))
+    application.add_handler(CommandHandler('acc', acc))
+    application.add_handler(CommandHandler('invite', invite))
+    application.add_handler(CommandHandler('daily_reward', daily_reward))
+    application.add_handler(CommandHandler('history', history))
+    application.add_handler(CommandHandler('shop', shop))
+    application.add_handler(CommandHandler('admin_stats', admin_stats))
+    application.add_handler(CommandHandler('support', support))
+    application.add_handler(CommandHandler('feedback', feedback))
+    application.add_handler(CommandHandler('seasonal_event', seasonal_event))
 
-    updater.dispatcher.add_handler(CallbackQueryHandler(button))
-    updater.dispatcher.add_error_handler(error_handler)
+    application.add_handler(CallbackQueryHandler(button))
+    application.add_error_handler(error_handler)
 
     restore_data()  # Load user data at startup
-    updater.start_polling()
-    updater.idle()
+    application.run_polling()
     backup_data()  # Backup user data when stopping
 
-if __name__ == '__main__':
+if name == 'main':
     main()
