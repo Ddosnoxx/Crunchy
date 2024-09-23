@@ -1,6 +1,7 @@
 import os
 import json
 import logging
+from telegram.ext import ApplicationBuilder
 from datetime import datetime, date
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Updater, CommandHandler, CallbackContext, CallbackQueryHandler
@@ -230,7 +231,7 @@ def error_handler(update: Update, context: CallbackContext):
 # Main function to run
 # Main function to run the bot
 def main():
-    updater = Updater('7845868118:AAEXzBLBlJ7HvpACv_CLDI353LnfPtpGBqM')  # Replace with your bot token
+    application = ApplicationBuilder().token('7845868118:AAEXzBLBlJ7HvpACv_CLDI353LnfPtpGBqM').build()# Replace with your bot token
 
     # Command handlers
     updater.dispatcher.add_handler(CommandHandler('start', start))
