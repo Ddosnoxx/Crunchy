@@ -6,7 +6,7 @@ from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Updater, CommandHandler, CallbackContext, CallbackQueryHandler
 
 # Replace with your bot owner's user ID and your bot token
-bot_owner_id = 1984468312  # Replace with your Telegram user ID
+bot_owner_id = 5154912723 # Replace with your Telegram user ID
 premium_accounts = []
 used_accounts = []
 user_data = {}
@@ -24,10 +24,10 @@ def check_membership(user_id, channel_username):
 
 def enforce_membership(update: Update, context: CallbackContext):
     user_id = update.effective_user.id
-    channel_username = '@GokuMethod'
+    channel_username = '@NoxBots'
     
     if not check_membership(user_id, channel_username):
-        update.message.reply_text("You must be a member of the channel @GokuMethod to use this command. Please join the channel.")
+        update.message.reply_text("You must be a member of the channel @NoxBots to use this command. Please join the channel.")
         return False
     return True
 
@@ -230,7 +230,7 @@ def error_handler(update: Update, context: CallbackContext):
 # Main function to run
 # Main function to run the bot
 def main():
-    updater = Updater('8031298999:AAHqydBkrLcb9uiWt06atqxoq2q61d2TXwk')  # Replace with your bot token
+    updater = Updater('7845868118:AAEXzBLBlJ7HvpACv_CLDI353LnfPtpGBqM')  # Replace with your bot token
 
     # Command handlers
     updater.dispatcher.add_handler(CommandHandler('start', start))
